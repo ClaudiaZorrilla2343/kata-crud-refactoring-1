@@ -1,8 +1,8 @@
 package co.com.sofka.crud.controller;
 
-import co.com.sofka.crud.entities.Todo;
-import co.com.sofka.crud.services.TodoService;
+import co.com.sofka.crud.entities.Lista;
 
+import co.com.sofka.crud.services.ListService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -14,42 +14,42 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import java.util.ArrayList;
 import java.util.List;
+
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
-public class TodoController {
+public class ListController {
 
     @Autowired
-    private TodoService service;
+    private ListService listService;
 
-    @GetMapping(value = "api/todos")
-    public List<Todo> findAll(){
-        return service.findAll();
+    @GetMapping(value = "api/list")
+    public List<Lista> findAll() {
+        return listService.findAll();
     }
 
-    @PostMapping(value = "api/todo")
-    public Todo save(@RequestBody Todo todo){
-        return service.save(todo);
+    @PostMapping(value = "api/list")
+    public Lista save(@RequestBody Lista lista) {
+        return listService.save(lista);
     }
 
-    @PutMapping(value = "api/todo")
-    public Todo update(@RequestBody Todo todo){
-        if(todo.getId() != null){
-            return service.save(todo);
+    @PutMapping(value = "api/list")
+    public Lista update(@RequestBody Lista lista) {
+        if (lista.getId() != null) {
+            return listService.save(lista);
         }
         throw new RuntimeException("No existe el id para actualziar");
     }
 
-    @DeleteMapping("/{id}")
-    public void deleteById(@PathVariable Long id){
-        service.deleteById(id);
+    @DeleteMapping("/list/{id}")
+    public void deleteById(@PathVariable Long id) {
+        listService.deleteById(id);
     }
 
     @GetMapping("/{id}")
-    public Todo findById(@PathVariable Long id){
-        return service.findById(id);
+    public Lista findById(@PathVariable Long id) {
+        return listService.findById(id);
     }
 
 }

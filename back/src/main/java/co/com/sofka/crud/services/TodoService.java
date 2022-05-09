@@ -24,12 +24,13 @@ public class TodoService implements TodoServive{
     }
 
     @Override
-    public void save(Todo todo) {
+    public Todo save(Todo todo) {
         todoRepository.save(todo);
+        return todo;
     }
 
     @Override
     public void deleteById(Long id) {
-
+        todoRepository.deleteById(id);
     }
 }

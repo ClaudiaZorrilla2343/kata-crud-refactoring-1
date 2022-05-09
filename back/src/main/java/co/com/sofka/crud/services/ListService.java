@@ -1,34 +1,33 @@
 package co.com.sofka.crud.services;
 
-import co.com.sofka.crud.entities.Todo;
+import co.com.sofka.crud.entities.Lista;
 
 import java.util.List;
 
-public interface TodoServive {
-
+public interface ListService {
     /**
      * Devuelve un dato de tipo Todo
      * @param id
      * @return
      */
-    Todo findById(Long id);
+    Lista findById(Long id);
 
     /**
      * Devuelve todos los datos de tipo Todo
      * @return
      */
-    List<Todo> findAll();
+    List<Lista> findAll();
 
     /**
      * Añade a la persistencia el dato de tipo Todo
      *
-     * @param todo
+     * @param lista
      * @return
      */
-    Todo save(Todo todo);
+    Lista save(Lista lista);
 
     /**
-     * Elimina de la persistencia un dato de tipo Todo
+     * Elimina de la persistencia un dato de tipo List
      * @param id
      */
     void deleteById(Long id);
