@@ -39,7 +39,7 @@ public class ListController {
         if (lista.getId() != null) {
             return listService.save(lista);
         }
-        throw new RuntimeException("No existe el id para actualziar");
+        throw new RuntimeException("Inexistente");
     }
 
     @DeleteMapping("/list/{id}")
@@ -51,5 +51,7 @@ public class ListController {
     public Lista findById(@PathVariable Long id) {
         return listService.findById(id);
     }
+
+
 
 }

@@ -10,7 +10,8 @@ import javax.persistence.Column;
 import javax.persistence.Table;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 
@@ -33,5 +34,10 @@ public class Todo {
 
     @Column(name = "GROUPLISTID")
     private String groupListId;
+
+    @ManyToOne
+    @JoinColumn(name = "idlista")
+    private Lista lista;
+
 
 }
